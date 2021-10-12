@@ -13,7 +13,9 @@ import {
   useColorScheme,
   Linking,
 } from 'react-native';
+import {Router, Switch, Route} from 'react-native-web-router';
 import logo from './logo.png';
+import MovieScreen from './Screens/movieScreen';
 
 const isNative = Platform.OS !== 'web';
 
@@ -26,7 +28,11 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}
         contentContainerStyle={styles.scrollView}>
-        <Text> Madush</Text>
+        <Router>
+          <Switch>
+            <Route path={'/'} component={MovieScreen} exact />
+          </Switch>
+        </Router>
       </ScrollView>
     </SafeAreaView>
   );
