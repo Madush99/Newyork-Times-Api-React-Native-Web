@@ -19,6 +19,7 @@
     "react-native": "0.65.1",
     "react-native-web": "^0.17.1",
     "react-native-web-router": "^0.4.23",
+    "react-redux": "^7.2.5",
     "react-scripts": "4.0.3",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",

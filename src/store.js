@@ -1,7 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {create} from 'react-test-renderer';
 import {movieListreducer} from './reducers/movieReducers';
 
 const reducer = combineReducers({
@@ -14,3 +13,5 @@ const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(...middleware)),
 );
+
+export default store;
