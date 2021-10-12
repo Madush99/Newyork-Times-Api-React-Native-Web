@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Text, View, Image, StyleSheet, Button} from 'react-native';
 import {Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import {listMovies} from '../actions/movieActions';
+import Loader from '../components/loader';
 
 const MovieScreen = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const MovieScreen = () => {
   return (
     <>
       {loading ? (
-        <Text>Loading....</Text>
+        <Loader />
       ) : error ? (
         <Text>Errorr....</Text>
       ) : (
