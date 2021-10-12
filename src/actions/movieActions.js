@@ -5,7 +5,7 @@ import {
   MOVIE_LIST_SUCCESS,
 } from '../constants/movieConstants';
 
-export const listMovies = () => async (dispatch, getState) => {
+export const listMovies = () => async dispatch => {
   try {
     dispatch({
       type: MOVIE_LIST_REQUEST,
