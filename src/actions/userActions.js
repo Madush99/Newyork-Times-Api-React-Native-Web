@@ -12,8 +12,9 @@ export const login = (email, password) => async dispatch => {
     });
 
     const config = {
-      headres: {
-        'Content-Type': 'application/json',
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json',
       },
     };
 
@@ -31,7 +32,7 @@ export const login = (email, password) => async dispatch => {
       payload: data,
     });
 
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    JSON.stringify(data);
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,

@@ -20,7 +20,7 @@ const LoginScreen = ({history}) => {
   const {loding, error, userInfo} = userLogin;
 
   useEffect(() => {
-    if (!userInfo) {
+    if (userInfo) {
       history.push('/movies');
     }
   }, [history, userInfo]);
@@ -32,7 +32,7 @@ const LoginScreen = ({history}) => {
   return (
     <ImageBackground
       source={{
-        uri: 'https://wallpapercave.com/wp/wp3285541.jpg',
+        uri: 'https://free4kwallpapers.com/uploads/originals/2019/03/04/neon-japan-wallpaper.jpg',
       }}
       style={styles.image}>
       <View style={styles.card}>
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    width: '80%',
-    marginTop: '40%',
+    width: '50%',
+    marginTop: '10%',
     borderRadius: 20,
     maxHeight: 380,
     paddingBottom: '30%',
