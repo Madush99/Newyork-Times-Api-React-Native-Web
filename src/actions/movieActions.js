@@ -6,7 +6,6 @@ import {
 } from '../constants/movieConstants';
 
 export const listMovies = () => async dispatch => {
-  const search = 'all';
   try {
     dispatch({
       type: MOVIE_LIST_REQUEST,
