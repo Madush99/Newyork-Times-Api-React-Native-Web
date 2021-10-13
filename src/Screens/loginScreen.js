@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../actions/userActions';
+import Loader from '../components/loader';
+import Message from '../components/message';
 
 const LoginScreen = ({history}) => {
   const [email, setEmail] = useState('');
@@ -18,7 +20,7 @@ const LoginScreen = ({history}) => {
 
   const dispatch = useDispatch();
   const userLogin = useSelector(state => state.userLogin);
-  const {loding, error, userInfo} = userLogin;
+  const {loading, error, userInfo} = userLogin;
 
   useEffect(() => {
     if (userInfo) {
@@ -31,37 +33,47 @@ const LoginScreen = ({history}) => {
   };
 
   return (
-    <ImageBackground
-      source={{
-        uri: 'https://free4kwallpapers.com/uploads/originals/2019/03/04/neon-japan-wallpaper.jpg',
-      }}
-      style={styles.image}>
-      <View style={styles.card}>
-        <Text style={styles.heading}>LOGIN</Text>
-        <Text style={styles.heading2}>
-          WELCOME TO NEWYORK TIMES MOVIE REVIEWS
-        </Text>
+    <>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message />
+      ) : (
+        <ImageBackground
+          source={{
+            uri: 'https://free4kwallpapers.com/uploads/originals/2019/03/04/neon-japan-wallpaper.jpg',
+          }}
+          style={styles.image}>
+          <View style={styles.card}>
+            <Text style={styles.heading}>LOGIN</Text>
+            <Text style={styles.heading2}>
+              WELCOME TO NEWYORK TIMES MOVIE REVIEWS
+            </Text>
 
-        <View style={styles.form}>
-          <View style={styles.inputs}>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              autoCapitalize="none"
-              onChangeText={setEmail}></TextInput>
-            <TextInput
-              secureTextEntry={true}
-              style={styles.input}
-              placeholder="Password"
-              onChangeText={setPassword}></TextInput>
-            <TouchableOpacity style={styles.button} onPress={onSubmitHandler}>
-              <Text style={styles.buttonText}>LOG IN</Text>
-            </TouchableOpacity>
-            <Text style={styles.txt}>FORGET PASSWORD ?</Text>
+            <View style={styles.form}>
+              <View style={styles.inputs}>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Email"
+                  autoCapitalize="none"
+                  onChangeText={setEmail}></TextInput>
+                <TextInput
+                  secureTextEntry={true}
+                  style={styles.input}
+                  placeholder="Password"
+                  onChangeText={setPassword}></TextInput>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={onSubmitHandler}>
+                  <Text style={styles.buttonText}>LOG IN</Text>
+                </TouchableOpacity>
+                <Text style={styles.txt}>FORGET PASSWORD ?</Text>
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
-    </ImageBackground>
+        </ImageBackground>
+      )}
+    </>
   );
 };
 
