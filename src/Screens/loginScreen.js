@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Platform,
+  Image,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../actions/userActions';
@@ -36,7 +37,11 @@ const LoginScreen = ({history}) => {
       }}
       style={styles.image}>
       <View style={styles.card}>
-        <Text style={styles.heading}></Text>
+        <Text style={styles.heading}>LOGIN</Text>
+        <Text style={styles.heading2}>
+          WELCOME TO NEWYORK TIMES MOVIE REVIEWS
+        </Text>
+
         <View style={styles.form}>
           <View style={styles.inputs}>
             <TextInput
@@ -50,8 +55,9 @@ const LoginScreen = ({history}) => {
               placeholder="Password"
               onChangeText={setPassword}></TextInput>
             <TouchableOpacity style={styles.button} onPress={onSubmitHandler}>
-              <Text style={styles.buttonText}>Done</Text>
+              <Text style={styles.buttonText}>LOG IN</Text>
             </TouchableOpacity>
+            <Text style={styles.txt}>FORGET PASSWORD ?</Text>
           </View>
         </View>
       </View>
@@ -63,28 +69,45 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     width: '100%',
+    height: '900px',
     alignItems: 'center',
   },
   card: {
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    width: '50%',
+    width: '60%',
     marginTop: '10%',
     borderRadius: 20,
     maxHeight: 380,
     paddingBottom: '30%',
   },
+  txt: {
+    fontFamily: 'Cochin',
+    paddingTop: '10px',
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: '17px',
+  },
   heading: {
+    fontFamily: 'Cochin',
     fontSize: 30,
     fontWeight: 'bold',
-    marginLeft: '10%',
     marginTop: '5%',
-    marginBottom: '30%',
+    marginBottom: '5px',
     color: 'black',
+    alignSelf: 'center',
+  },
+  heading2: {
+    fontFamily: 'Cochin',
+    fontSize: 35,
+    fontWeight: 'bold',
+    marginTop: '30px',
+    marginBottom: '30px',
+    color: 'black',
+    alignSelf: 'center',
   },
   form: {
     flex: 1,
-    justifyContent: 'space-between',
     paddingBottom: '5%',
   },
   inputs: {
@@ -112,6 +135,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   buttonText: {
+    fontFamily: 'Cochin',
     color: 'white',
     fontSize: 16,
     fontWeight: '400',
