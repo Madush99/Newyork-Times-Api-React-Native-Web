@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import {Router, Switch, Route} from 'react-native-web-router';
 import logo from './logo.png';
+import LoginScreen from './Screens/loginScreen';
 import MovieScreen from './Screens/movieScreen';
 
 const isNative = Platform.OS !== 'web';
@@ -30,7 +31,8 @@ const App = () => {
         contentContainerStyle={styles.scrollView}>
         <Router>
           <Switch>
-            <Route path={'/'} component={MovieScreen} exact />
+            <Route path={'/'} component={LoginScreen} exact />
+            <Route path={'/movies'} component={MovieScreen} />
           </Switch>
         </Router>
       </ScrollView>
