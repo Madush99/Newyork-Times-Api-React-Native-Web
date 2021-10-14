@@ -5,12 +5,20 @@ import {Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import {listMovies} from '../actions/movieActions';
 import Loader from '../components/loader';
 import Message from '../components/message';
+import {logout} from '../actions/userActions';
 
 const MovieScreen = () => {
   const dispatch = useDispatch();
 
   const movieList = useSelector(state => state.movieList);
   const {loading, error, movies} = movieList;
+
+  const userLogin = useSelector(state => state.userLogin);
+  const {userInfo} = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   useEffect(() => {
     dispatch(listMovies());
