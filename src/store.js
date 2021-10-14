@@ -9,10 +9,15 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
 });
 
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
+  : null;
+
 const middleware = [thunk];
 
 const store = createStore(
   reducer,
+  userInfoFromStorage,
   composeWithDevTools(applyMiddleware(...middleware)),
 );
 
