@@ -7,22 +7,19 @@ import Loader from '../components/loader';
 import Message from '../components/message';
 import {logout} from '../actions/userActions';
 
-const MovieScreen = () => {
+const MovieScreen = ({history}) => {
   const dispatch = useDispatch();
 
   const movieList = useSelector(state => state.movieList);
   const {loading, error, movies} = movieList;
 
-  const userLogin = useSelector(state => state.userLogin);
-  const {userInfo} = userLogin;
+  useEffect(() => {
+    dispatch(listMovies());
+  }, [dispatch]);
 
   const logoutHandler = () => {
     dispatch(logout());
   };
-
-  useEffect(() => {
-    dispatch(listMovies());
-  }, [dispatch]);
 
   return (
     <>
@@ -45,6 +42,10 @@ const MovieScreen = () => {
             }}>
             New York Times Movies Reviews
           </Text>
+          <Button
+            onPress={logoutHandler}
+            title="LOGOUT"
+            color="#161314"></Button>
           <Image
             source={{
               uri: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80',
