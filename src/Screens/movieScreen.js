@@ -7,7 +7,7 @@ import Loader from '../components/loader';
 import Message from '../components/message';
 import {logout} from '../actions/userActions';
 
-const MovieScreen = ({history}) => {
+const MovieScreen = () => {
   const dispatch = useDispatch();
 
   const movieList = useSelector(state => state.movieList);
@@ -30,139 +30,147 @@ const MovieScreen = ({history}) => {
           <Message></Message>
         </Text>
       ) : (
-        <View>
-          <Text
-            style={{
-              fontFamily: 'Cochin',
-              fontWeight: 'bold',
-              fontSize: '50px',
-              paddingBottom: '20px',
-              paddingTop: '20px',
-              alignSelf: 'center',
-            }}>
-            New York Times Movies Reviews
-          </Text>
-          <Button
-            onPress={logoutHandler}
-            title="LOGOUT"
-            color="#161314"></Button>
-          <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80',
-            }}
-            style={[styles.imgCon]}
-          />
-          <Text
-            style={{
-              paddingTop: '30px',
-              color: '#000000',
-              fontWeight: 'bold',
-              fontSize: '20px',
-              fontFamily: 'Cochin',
-              paddingLeft: '60px',
-            }}>
-            Movies
-          </Text>
-          <Text
-            style={{
-              paddingTop: '20px',
-              color: '#000000',
-              fontWeight: 'bold',
-              fontSize: '40px',
-              fontFamily: 'Cochin',
-              paddingLeft: '60px',
-            }}>
-            Movie Reviews
-          </Text>
-          <Text
-            style={{
-              paddingTop: '5px',
-              color: '#3C3C3C',
-              fontSize: '15px',
-              fontFamily: 'Cochin',
-              paddingLeft: '60px',
-            }}>
-            Our film critics on blockbusters, independents and everything in
-            between.
-          </Text>
-          <Text
-            style={{
-              height: 1,
-              backgroundColor: 'rgb(200, 199, 204)',
-              marginLeft: 60,
-            }}></Text>
-          <br />
-          <br />
-          {movies.length > 0 &&
-            movies.map(movie => {
-              const {
-                display_title,
-                headline,
-                mpaa_rating,
-                critics_pick,
-                byline,
-                multimedia,
-                link,
-                summary_short,
-                opening_date,
-                date_updated,
-                publication_date,
-              } = movie;
-              return (
-                <>
-                  <movies key={display_title} />
+        <>
+          <View style={[styles.button]}>
+            <Button
+              onPress={logoutHandler}
+              title="LOGOUT"
+              color="#161314"></Button>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontFamily: 'Cochin',
+                fontWeight: 'bold',
+                fontSize: '50px',
+                paddingBottom: '20px',
+                paddingTop: '20px',
+                alignSelf: 'center',
+              }}>
+              New York Times Movies Reviews
+            </Text>
 
-                  <Card style={[styles.container]}>
-                    <Card.Title
-                      title={display_title}
-                      subtitle={headline}
-                      style={{marginLeft: '40px'}}
-                    />
-                    <Text style={{marginLeft: '60px', paddingBottom: '20px'}}>
-                      Publication Date: {publication_date}
-                    </Text>
-                    <Card.Content style={[styles.content]}>
-                      <Card.Cover
-                        source={{uri: multimedia.src}}
-                        style={{width: 500, height: 250, alignSelf: 'center'}}
+            <Image
+              source={{
+                uri: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80',
+              }}
+              style={[styles.imgCon]}
+            />
+            <Text
+              style={{
+                paddingTop: '30px',
+                color: '#000000',
+                fontWeight: 'bold',
+                fontSize: '20px',
+                fontFamily: 'Cochin',
+                paddingLeft: '60px',
+              }}>
+              Movies
+            </Text>
+            <Text
+              style={{
+                paddingTop: '20px',
+                color: '#000000',
+                fontWeight: 'bold',
+                fontSize: '40px',
+                fontFamily: 'Cochin',
+                paddingLeft: '60px',
+              }}>
+              Movie Reviews
+            </Text>
+            <Text
+              style={{
+                paddingTop: '5px',
+                color: '#3C3C3C',
+                fontSize: '15px',
+                fontFamily: 'Cochin',
+                paddingLeft: '60px',
+              }}>
+              Our film critics on blockbusters, independents and everything in
+              between.
+            </Text>
+            <Text
+              style={{
+                height: 1,
+                backgroundColor: 'rgb(200, 199, 204)',
+                marginLeft: 60,
+              }}></Text>
+            <br />
+            <br />
+            {movies.length > 0 &&
+              movies.map(movie => {
+                const {
+                  display_title,
+                  headline,
+                  mpaa_rating,
+                  critics_pick,
+                  byline,
+                  multimedia,
+                  link,
+                  summary_short,
+                  opening_date,
+                  date_updated,
+                  publication_date,
+                } = movie;
+                return (
+                  <>
+                    <movie key={display_title} />
+
+                    <Card style={[styles.container]}>
+                      <Card.Title
+                        title={display_title}
+                        subtitle={headline}
+                        style={{marginLeft: '40px'}}
                       />
+                      <Text style={{marginLeft: '60px', paddingBottom: '20px'}}>
+                        Publication Date: {publication_date}
+                      </Text>
+                      <Card.Content style={[styles.content]}>
+                        <Card.Cover
+                          source={{uri: multimedia.src}}
+                          style={{width: 500, height: 250, alignSelf: 'center'}}
+                        />
 
-                      <Title>
-                        {critics_pick}| {mpaa_rating}
-                      </Title>
-                      <Paragraph>{summary_short}</Paragraph>
-                      <Paragraph
-                        style={{color: '#c0c0c0', paddingBottom: '10px'}}>
-                        By: {byline}
-                      </Paragraph>
-                      <a
-                        href={link.url}
-                        style={{
-                          paddingBottom: '15px',
-                          width: 600,
-                          alignSelf: 'center',
-                        }}>
-                        <Button
-                          onPress={link.url}
-                          title={link.suggested_link_text}
-                          color="#161314"></Button>
-                      </a>
-                    </Card.Content>
-                  </Card>
+                        <Title>
+                          {critics_pick}| {mpaa_rating}
+                        </Title>
+                        <Paragraph>{summary_short}</Paragraph>
+                        <Paragraph
+                          style={{color: '#c0c0c0', paddingBottom: '10px'}}>
+                          By: {byline}
+                        </Paragraph>
+                        <a
+                          href={link.url}
+                          style={{
+                            paddingBottom: '15px',
+                            width: 600,
+                            alignSelf: 'center',
+                          }}>
+                          <Button
+                            onPress={link.url}
+                            title={link.suggested_link_text}
+                            color="#161314"></Button>
+                        </a>
+                      </Card.Content>
+                    </Card>
 
-                  <View
-                    style={{paddingBottom: '30px', paddingTop: '20px'}}></View>
+                    <View
+                      style={{
+                        paddingBottom: '30px',
+                        paddingTop: '20px',
+                      }}></View>
 
-                  {/* <View style={[styles.row, styles.container]}>
+                    {/* <View style={[styles.row, styles.container]}>
                           <Text>{display_title} </Text>
                           <Text>MAdish</Text>
                           <Image source={{ uri: 'https://wallpapercave.com/wp/wp3285541.jpg' }} style={{ width: 100, height: 100, }} />
 
                     </View> */}
-                </>
-              );
-            })}
-        </View>
+                  </>
+                );
+              })}
+          </View>
+        </>
       )}
     </>
   );
@@ -204,6 +212,12 @@ const styles = StyleSheet.create({
     margin: 5,
     borderColor: '#009688',
     backgroundColor: '#FFFFFF',
+  },
+  button: {
+    paddingTop: '15px',
+    width: '100px',
+    alignSelf: 'left',
+    paddingLeft: '10px',
   },
 });
 
