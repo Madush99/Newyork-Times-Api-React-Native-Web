@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    width: '60%',
+    width: '70%',
     marginTop: '10%',
     borderRadius: 20,
     maxHeight: 380,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   heading2: {
     fontFamily: 'Cochin',
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     marginTop: '30px',
     marginBottom: '30px',
