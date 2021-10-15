@@ -91,7 +91,14 @@ const MovieScreen = () => {
             </Text>
             <Text
               style={{
-                height: 1,
+                height: 2,
+                backgroundColor: 'rgb(200, 199, 204)',
+                marginLeft: 60,
+              }}></Text>
+            <Text style={{paddingBottom: '2px'}}></Text>
+            <Text
+              style={{
+                height: 2,
                 backgroundColor: 'rgb(200, 199, 204)',
                 marginLeft: 60,
               }}></Text>
