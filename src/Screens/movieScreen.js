@@ -86,6 +86,7 @@ const MovieScreen = () => {
                 fontSize: '15px',
                 fontFamily: 'Cochin',
                 paddingLeft: '60px',
+                paddingBottom: '1px',
               }}>
               Our film critics on blockbusters, independents and everything in
               between.
@@ -93,14 +94,14 @@ const MovieScreen = () => {
             <Text
               style={{
                 height: 2,
-                backgroundColor: 'rgb(200, 199, 204)',
+                backgroundColor: '#387AC1',
                 marginLeft: 60,
               }}></Text>
-            <Text style={{paddingBottom: '2px'}}></Text>
+            <Text style={{paddingBottom: '3px'}}></Text>
             <Text
               style={{
                 height: 2,
-                backgroundColor: 'rgb(200, 199, 204)',
+                backgroundColor: '#387AC1',
                 marginLeft: 60,
               }}></Text>
             <br />
@@ -157,7 +158,7 @@ const MovieScreen = () => {
                           <Button
                             onPress={link.url}
                             title={link.suggested_link_text}
-                            color="#161314"></Button>
+                            color="#051A44"></Button>
                         </a>
                       </Card.Content>
                     </Card>
