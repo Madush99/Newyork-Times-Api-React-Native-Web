@@ -13,7 +13,7 @@ import {
   useColorScheme,
   Linking,
 } from 'react-native';
-import {Router, Switch, Route} from 'react-native-web-router';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import logo from './logo.png';
 import LoginScreen from './Screens/loginScreen';
 import MovieScreen from './Screens/movieScreen';
