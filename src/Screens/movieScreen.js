@@ -34,35 +34,23 @@ const MovieScreen = () => {
           <View style={styles.container1}>
             <Text
               style={{
-                paddingTop: '30px',
                 color: '#ffffff',
                 fontWeight: 'bold',
-                fontSize: '20px',
+                fontSize: '30px',
                 fontFamily: 'Cochin',
-                paddingLeft: '60px',
               }}>
-              Madush
+              The New York Times
+              <View style={[styles.row, styles.button]}>
+                <Button
+                  onPress={logoutHandler}
+                  title="Log out"
+                  color="#28609C"></Button>
+                {/* //#387AC1 */}
+              </View>
             </Text>
           </View>
-          <View style={[styles.button]}>
-            <Button
-              onPress={logoutHandler}
-              title="LOGOUT"
-              color="#161314"></Button>
-          </View>
-          <View>
-            <Text
-              style={{
-                fontFamily: 'Cochin',
-                fontWeight: 'bold',
-                fontSize: '50px',
-                paddingBottom: '20px',
-                paddingTop: '20px',
-                alignSelf: 'center',
-              }}>
-              New York Times Movies Reviews
-            </Text>
 
+          <View>
             <Image
               source={{
                 uri: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80',
@@ -204,9 +192,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   container1: {
-    paddingTop: '20px',
     backgroundColor: '#3C3C3C',
-    height: '150px',
+    height: '60px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -214,7 +201,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    paddingLeft: 60,
+    paddingLeft: 1000,
   },
   content: {
     marginLeft: '40px',
@@ -243,10 +230,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   button: {
-    paddingTop: '15px',
     width: '100px',
-    alignSelf: 'left',
-    paddingLeft: '10px',
+    height: '35px',
+    fontSize: '20px',
+    fontcolor: '#161314',
+  },
+  buttonText: {
+    fontFamily: 'Cochin',
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '400',
   },
 });
 
