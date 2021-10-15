@@ -31,6 +31,19 @@ const MovieScreen = () => {
         </Text>
       ) : (
         <>
+          <View style={styles.container1}>
+            <Text
+              style={{
+                paddingTop: '30px',
+                color: '#ffffff',
+                fontWeight: 'bold',
+                fontSize: '20px',
+                fontFamily: 'Cochin',
+                paddingLeft: '60px',
+              }}>
+              Madush
+            </Text>
+          </View>
           <View style={[styles.button]}>
             <Button
               onPress={logoutHandler}
@@ -189,6 +202,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 900,
     alignSelf: 'center',
+  },
+  container1: {
+    paddingTop: '20px',
+    backgroundColor: '#3C3C3C',
+    height: '150px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   row: {
     flexDirection: 'row',
